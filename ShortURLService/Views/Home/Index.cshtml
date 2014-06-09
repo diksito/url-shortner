@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ShortURLService.Models.URL>
+@using ShortURLService.Helpers;
+@{
+    ViewBag.Title = "Home";
+}
+@section scripts {
+<script src="@Url.Content("~/Scripts/shortURL.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    function shortening() {
+        requestShortUrl($("#LongUrl").val(), '@Url.Action("ShorterURL", "Home")', '#shorterURLResult', '#output');
+    }
+</script>
+}
+<div class="row" style="padding-top: 30px;">
+    <div class="col-md-8">
+        <div class="jumbotron">
+            <p style="font-weight: bold;">Paste your long URL here:</p>
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.TextBox("LongUrl", null, new { @class = "form-control input-sm ", @placeholder = "Long URL" })
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary" onclick="shortening()">Shorten URL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 well" id="output" style="display: none;">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="font-weight: bold;">Your shorter URL:</div>
+            <div class="panel-body">
+                <span id="shorterURLResult" style="font-weight: bold; font-size: 16px;"></span>
+            </div>
+        </div>
+    </div>
+    @if(Model.Count() > 0)
+    {
+        <div class="col-md-8">
+            <table class="table table-striped table-hover">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.LongUrl)</th>
+                    <th>@Html.DisplayNameFor(model => model.GeneratedDate)</th>
+                    <th>@Html.DisplayNameFor(model => model.ShortUrl)</th>
+                    <th>@Html.DisplayNameFor(model => model.Hits)</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr id="row-url-@item.UrlId">
+                        <td>
+                            <a href="@Html.DisplayFor(modelItem => item.LongUrl)" target="_blank">@Html.DisplayFor(modelItem => item.LongUrl)</a>
+                        </td>
+                        <td>
+                            <span title="@Html.DisplayFor(modelItem => item.GeneratedDate)">@Html.RelativeTime(item.GeneratedDate)</span>
+                        </td>
+                        <td>@Html.Raw(Html.ShortURL(Request, item.ShortUrl))</td>
+                        <td>@Html.DisplayFor(modelItem => item.Hits)</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+</div>
