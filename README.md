@@ -1,7 +1,7 @@
 URL Shortener Service
 =============
 
-ASP.NET MVC 5 implementation of URL Shortener service.
+ASP.NET MVC 5 implementation of URL Shortener service http://www.nikolay-angelov.eu/custom-url-shortener-in-asp-net-mvc-5/
 - C#
 - .NET 4.5
 - Visual Studio for Web 2013
