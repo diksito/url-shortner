@@ -27,6 +27,8 @@ namespace ShortURLService.Models
         public DateTime GeneratedDate { get; set; }
         public string UserId { get; set; }
 
+        public virtual List<UrlStat> UrlStats { get; set; }
+
         public void GenerateRandomShortUrl()
         {
             string number = "";

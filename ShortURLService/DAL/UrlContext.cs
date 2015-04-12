@@ -10,5 +10,6 @@ namespace ShortURLService.DAL
     public class UrlContext : DbContext
     {
         public DbSet<URL> Urls { get; set; }
+        public DbSet<UrlStat> UrlStats { get; set; }
     }
 }
