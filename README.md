@@ -5,7 +5,7 @@ ASP.NET MVC 5 implementation of URL Shortener service http://www.nikolay-angelov
 - C#
 - .NET 4.5
 - Visual Studio for Web 2013
-- Twitter Bootstrap
+- Bootstrap
 
 <img src="http://www.nikolay-angelov.eu/wp-content/uploads/2014/08/Home-Generated-URL.png" />
 
