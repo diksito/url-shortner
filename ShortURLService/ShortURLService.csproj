@@ -194,6 +194,10 @@
     <Compile Include="Migrations\201406011023068_ChangeUserIdProperty.Designer.cs">
       <DependentUpon>201406011023068_ChangeUserIdProperty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504121927072_URLStats.cs" />
+    <Compile Include="Migrations\201504121927072_URLStats.Designer.cs">
+      <DependentUpon>201504121927072_URLStats.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -276,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201406011023068_ChangeUserIdProperty.resx">
       <DependentUpon>201406011023068_ChangeUserIdProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504121927072_URLStats.resx">
+      <DependentUpon>201504121927072_URLStats.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
