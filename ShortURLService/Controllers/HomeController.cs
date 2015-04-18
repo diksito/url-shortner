@@ -7,10 +7,14 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 
+[assembly: log4net.Config.XmlConfigurator(Watch = true)]
 namespace ShortURLService.Controllers
 {
     public class HomeController : Controller
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger
+    (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         UrlContext db = new UrlContext();
         public ActionResult Index()
         {
@@ -46,7 +50,7 @@ namespace ShortURLService.Controllers
                     }
                     catch (Exception exc)
                     {
-
+                        log.Error(exc);
                     }
                     #endregion
 
@@ -103,6 +107,7 @@ namespace ShortURLService.Controllers
                         }
                         catch (Exception exc)
                         {
+                            log.Error(exc);
                             return Json(new { status = false, message = exc.Message }, JsonRequestBehavior.AllowGet);
                         }
                     }
