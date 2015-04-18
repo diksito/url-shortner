@@ -40,6 +40,7 @@ namespace ShortURLService.Models
             else
                 Browser = request.Browser.Browser;
             MajorVersion = request.Browser.MajorVersion;
+            IsMobile = request.Browser.IsMobileDevice;
         }
     }
 }

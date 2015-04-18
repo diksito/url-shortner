@@ -29,12 +29,27 @@ namespace ShortURLService.Controllers
                 return RedirectToAction("NotFound", "Home");
             else
             {
-                
                 URL url = db.Urls.Where(u => u.ShortUrl == shortURL).FirstOrDefault();
+
                 if (url == null)
                     return RedirectToAction("NotFound", "Home");
                 else
                 {
+                    #region Statistics collected for this URL
+                    UrlStat stats = new UrlStat(Request);
+                    stats.UrlId = url.UrlId; // relation
+
+                    try
+                    {
+                        db.UrlStats.Add(stats);
+                        db.SaveChanges();
+                    }
+                    catch (Exception exc)
+                    {
+
+                    }
+                    #endregion
+
                     url.Hits++; // increment visits
                     db.SaveChanges();
                     Response.StatusCode = 302;
