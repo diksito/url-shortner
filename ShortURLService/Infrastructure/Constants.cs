@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ShortURLService.Infrastructure
 {
+    /// <summary>
+    /// Constants values that are often used.
+    /// </summary>
     class Constants
     {
         public const string UNKNOWN = "Unknown";
