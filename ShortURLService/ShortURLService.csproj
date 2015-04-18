@@ -206,6 +206,10 @@
     <Compile Include="Migrations\201504180723250_RelationURLandStats.Designer.cs">
       <DependentUpon>201504180723250_RelationURLandStats.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504180733573_CollectBrowserInStats.cs" />
+    <Compile Include="Migrations\201504180733573_CollectBrowserInStats.Designer.cs">
+      <DependentUpon>201504180733573_CollectBrowserInStats.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -297,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504180723250_RelationURLandStats.resx">
       <DependentUpon>201504180723250_RelationURLandStats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504180733573_CollectBrowserInStats.resx">
+      <DependentUpon>201504180733573_CollectBrowserInStats.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
