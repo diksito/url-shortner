@@ -13,5 +13,7 @@ namespace ShortURLService.Models
         public string UserLanguage { get; set; }
         public string UrlRefferer { get; set; }
         public bool IsMobile { get; set; }
+        public int UrlId { get; set; }
+        public virtual URL Url { get; set; }
     }
 }
