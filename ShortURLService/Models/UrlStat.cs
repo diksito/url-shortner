@@ -8,9 +8,10 @@ namespace ShortURLService.Models
     public class UrlStat
     {
         public int UrlStatId { get; set; }
-        public string UserAgent { get; set; }
-        public string UserHostAddress { get; set; }
+        public string UserAgent { get; set; } // 
+        public string UserHostAddress { get; set; } //
         public string UserLanguage { get; set; }
+        public string UrlRefferer { get; set; }
         public bool IsMobile { get; set; }
     }
 }

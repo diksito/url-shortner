@@ -198,6 +198,10 @@
     <Compile Include="Migrations\201504121927072_URLStats.Designer.cs">
       <DependentUpon>201504121927072_URLStats.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504180706277_AddReffererToStats.cs" />
+    <Compile Include="Migrations\201504180706277_AddReffererToStats.Designer.cs">
+      <DependentUpon>201504180706277_AddReffererToStats.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -283,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504121927072_URLStats.resx">
       <DependentUpon>201504121927072_URLStats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504180706277_AddReffererToStats.resx">
+      <DependentUpon>201504180706277_AddReffererToStats.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
