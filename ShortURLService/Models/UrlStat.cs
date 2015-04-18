@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShortURLService.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -36,7 +37,7 @@ namespace ShortURLService.Models
             UserHostAddress = request.UserHostAddress;
             UserLanguage = request.UserLanguages[0];
             if (string.IsNullOrEmpty(request.Browser.Browser))
-                Browser = "Unknown";
+                Browser = Constants.UNKNOWN;
             else
                 Browser = request.Browser.Browser;
             MajorVersion = request.Browser.MajorVersion;

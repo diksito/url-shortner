@@ -178,6 +178,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\UrlHelper.cs" />
+    <Compile Include="Infrastructure\Constants.cs" />
     <Compile Include="Migrations\201405291750034_InitialCreate.cs" />
     <Compile Include="Migrations\201405291750034_InitialCreate.Designer.cs">
       <DependentUpon>201405291750034_InitialCreate.cs</DependentUpon>
