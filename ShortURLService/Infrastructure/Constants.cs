@@ -12,5 +12,14 @@ namespace ShortURLService.Infrastructure
     class Constants
     {
         public const string UNKNOWN = "Unknown";
+
+        /// <summary>
+        /// Protocols used in this application.
+        /// </summary>
+        public class Protocol
+        {
+            public const string HTTP = "http://";
+            public const string HTTPS = "https://";
+        }
     }
 }
