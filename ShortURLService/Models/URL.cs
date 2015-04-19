@@ -5,6 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using System.Net;
+using ShortURLService.Infrastructure;
 
 namespace ShortURLService.Models
 {
@@ -29,6 +30,9 @@ namespace ShortURLService.Models
 
         public virtual List<UrlStat> UrlStats { get; set; }
 
+        /// <summary>
+        /// Generate random URL ID which is used to create unique URL
+        /// </summary>
         public void GenerateRandomShortUrl()
         {
             string number = "";
@@ -47,12 +51,17 @@ namespace ShortURLService.Models
             ShortUrl = number;
         }
 
+        /// <summary>
+        /// Check if provided URL is valid HTTP url
+        /// </summary>
+        /// <param name="url">URL (Uniform resource locator)</param>
+        /// <returns>true or false depends on the URL contains HTTP</returns>
         public bool HasHTTPProtocol(string url)
         {
             url = url.ToLower();
             if (url.Length > 5)
             {
-                if (url.StartsWith("http://") || url.StartsWith("https://"))
+                if (url.StartsWith(Constants.Protocol.HTTP) || url.StartsWith(Constants.Protocol.HTTPS))
                     return true;
                 else
                     return false;
@@ -61,11 +70,15 @@ namespace ShortURLService.Models
                 return false;
         }
 
+        /// <summary>
+        /// Check whether provided URL exists by doing request to it and waiting for response.
+        /// </summary>
+        /// <returns>true or false depends on the availability of the provided URL</returns>
         public bool CheckLongUrlExists()
         {
             int linkLength = LongUrl.Length;
             if(!HasHTTPProtocol(LongUrl))
-                LongUrl = "http://" + LongUrl;
+                LongUrl = Constants.Protocol.HTTP + LongUrl;
 
             try
             {
