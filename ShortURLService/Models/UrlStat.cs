@@ -1,6 +1,7 @@
 ﻿using ShortURLService.Infrastructure;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -9,12 +10,18 @@ namespace ShortURLService.Models
     public class UrlStat
     {
         public int UrlStatId { get; set; }
+        [DisplayName("User Agent")]
         public string UserAgent { get; set; }
+        [DisplayName("Host Address")]
         public string UserHostAddress { get; set; }
+        [DisplayName("Language")]
         public string UserLanguage { get; set; }
+        [DisplayName("Refferal URL")]
         public string UrlRefferer { get; set; }
+        [DisplayName("Mobile")]
         public bool IsMobile { get; set; }
         public string Browser { get; set; }
+        [DisplayName("Browser Version")]
         public int MajorVersion { get; set; }
         public int UrlId { get; set; }
         public virtual URL Url { get; set; }
