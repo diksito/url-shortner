@@ -32,14 +32,31 @@ namespace ShortURLService.Models
         /// <param name="request">HTTP request</param>
         public UrlStat(HttpRequestBase request)
         {
-            UrlRefferer = request.UrlReferrer.Host;
-            UserAgent = request.UserAgent;
-            UserHostAddress = request.UserHostAddress;
-            UserLanguage = request.UserLanguages[0];
+            if (string.IsNullOrEmpty(request.UrlReferrer.Host))
+                UrlRefferer = Constants.UNKNOWN;
+            else
+                UrlRefferer = request.UrlReferrer.Host;
+
+            if (string.IsNullOrEmpty(request.UserAgent))
+                UserAgent = Constants.UNKNOWN;
+            else
+                UserAgent = request.UserAgent;
+
+            if (string.IsNullOrEmpty(request.UserHostAddress))
+                UserHostAddress = Constants.UNKNOWN;
+            else
+                UserHostAddress = request.UserHostAddress;
+
+            if (string.IsNullOrEmpty(request.UserLanguages[0]))
+                UserLanguage = Constants.UNKNOWN;
+            else
+                UserLanguage = request.UserLanguages[0];
+            
             if (string.IsNullOrEmpty(request.Browser.Browser))
                 Browser = Constants.UNKNOWN;
             else
                 Browser = request.Browser.Browser;
+            
             MajorVersion = request.Browser.MajorVersion;
             IsMobile = request.Browser.IsMobileDevice;
         }
